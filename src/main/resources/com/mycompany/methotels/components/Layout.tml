@@ -8,14 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-
+    <link rel="stylesheet" href="mybootstrap/css/stil.css"></link>
     <!-- Le styles -->
-    <style type="text/css">
-        body {
-            padding-top: 60px;
-            padding-bottom: 40px;
-        }
-    </style>
+
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -24,11 +19,53 @@
 
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="${asset:context:/favicon.ico}" />
+        <link rel="stylesheet" href="mybootstrap/css/stil.css"></link>
 </head>
 
 <body>
-
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+ <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">MetHotels</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Почетна</a></li>
+                        <li><a href="#">О нама</a></li>
+                        <li><a href="#">Смештај</a></li>
+                        <li><a href="#">Галерија</a></li>
+                        <li><a href="#">Контакт</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Региструјте се</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Пријавите се</a></li>
+                        <li id="lang">
+                            <p>Language</p>
+                        </li>
+                        <li>
+                            <button type="button" id="jezik" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Opcije</span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Српски</a></li>
+                                <li><a href="#">English</a></li>
+                                <li><a href="#">Deutch</a></li>
+                                <li><a href="#">Русский</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+<!--<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
 	    <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -53,17 +90,17 @@
                	</li>
             </span>
 
-        </div><!--/.nav-collapse -->
-    </div>
-</div>
+        </div>--><!--/.nav-collapse -->
+    <!--</div>
+</div>-->
 
-<div class="container">
+<!--<div class="container">
     <div class="row">
         <div class="span12">
             <t:alerts/>
         </div>
     </div>
-</div>
+    </div>-->
 
 <div class="container">
 
@@ -72,10 +109,10 @@
     <hr />
 
     <footer>
-        <p>&copy; Your Company 2014</p>
+        <p>&copy; Никола Кубуровић 1095</p>
     </footer>
 
-</div> <!-- /container -->
+</div><!-- /container -->
 
 </body>
 </html>
