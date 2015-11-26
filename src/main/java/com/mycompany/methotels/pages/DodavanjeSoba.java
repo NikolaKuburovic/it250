@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.methotels.pages;
 
 import com.mycompany.methotels.data.Soba;
@@ -12,7 +7,7 @@ import org.apache.tapestry5.annotations.Property;
 
 /**
  *
- * @author ubuntu
+ * @author nikola kuburovic 1095
  */
 public class DodavanjeSoba {
 

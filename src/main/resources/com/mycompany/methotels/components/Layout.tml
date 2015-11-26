@@ -10,8 +10,6 @@
     <meta name="author" content="" />
     <link rel="stylesheet" href="mybootstrap/css/stil.css"></link>
     <!-- Le styles -->
-
-
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
@@ -91,28 +89,28 @@
             </span>
 
         </div>--><!--/.nav-collapse -->
-    <!--</div>
-</div>-->
+        <!--</div>
+        </div>-->
 
-<!--<div class="container">
-    <div class="row">
-        <div class="span12">
-            <t:alerts/>
+        <!--<div class="container">
+        <div class="row">
+            <div class="span12">
+                <t:alerts/>
+            </div>
         </div>
-    </div>
-    </div>-->
+        </div>-->
 
-<div class="container">
+        <div class="container">
 
-    <t:body />
+            <t:body />
 
-    <hr />
+            <hr />
 
-    <footer>
-        <p>&copy; Никола Кубуровић 1095</p>
-    </footer>
+            <footer>
+                <p>&copy; Никола Кубуровић 1095</p>
+            </footer>
 
-</div><!-- /container -->
+        </div><!-- /container -->
 
-</body>
+    </body>
 </html>

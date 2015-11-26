@@ -1,12 +1,11 @@
 <html t:type="layout" title="MetHotels"
-    xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
-    xmlns:p="tapestry:parameter">
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
     <head>
         <link rel="stylesheet" href="mybootstrap/css/stil.css"></link>
     </head>
   
-  <div class="container">                                       
-        
+    <div class="container">                                       
         <div id="slajd"> 
             <img class="img-responsive" alt="MetHotels" src="images/stanisic.jpg"></img>
         </div>
@@ -32,9 +31,7 @@
         </div>
         
         <h2>Унос соба</h2>
-    <t:beaneditform object="soba"/>
-    <t:grid t:source="sobe"/>  
+        <t:beaneditform object="soba"/>
+        <t:grid t:source="sobe"/>  
     </div>
-
- 
 </html>     
