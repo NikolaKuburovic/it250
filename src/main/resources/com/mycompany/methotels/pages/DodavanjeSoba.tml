@@ -1,6 +1,9 @@
-<html t:type="layout" title="MetHotels"
+    <html t:type="layout" title="MetHotels"
+      t:sidebarTitle="Framework Version"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
+    
+
     <head>
         <link rel="stylesheet" href="mybootstrap/css/stil.css"></link>
     </head>
@@ -29,9 +32,10 @@
                 <button type="button" class="btn btn-success">Прочитај више</button>
             </div>
         </div>
-        
-        <h2>Унос соба</h2>
+        <t:beaneditform object="soba" exclude="id" />
+    <t:grid source="sobe" exclude="id"/>
+        <!--<h2>Унос соба</h2>
         <t:beaneditform object="soba"/>
-        <t:grid t:source="sobe"/>  
+        <t:grid t:source="sobe"/>  -->
     </div>
 </html>     
