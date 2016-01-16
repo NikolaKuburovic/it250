@@ -18,40 +18,41 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
  *
- * @author ubuntu
+ * @author Nikola Kuburovic 1095
  */
 @Entity
 @Table(name = "soba")
 @NamedQueries({
     @NamedQuery(name = "Soba.findAll", query = "SELECT s FROM Soba s")})
 public class Soba implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @Validate("required, max=900")
     @Column(name = "ID_Soba")
     private Integer iDSoba;
-    
+
     @Basic(optional = false)
     @Validate("required, minLength=5")
     @Column(name = "Ime")
     private String ime;
-    
+
     @Basic(optional = false)
     @Validate("required, max=9")
     @Column(name = "Sprat")
     private int sprat;
-    
+
     @Basic(optional = false)
     @Validate("required, minLength=2")
     @Column(name = "TV")
     private String tv;
-    
+
     @Basic(optional = false)
     @Validate("required, minLength=2")
     @Column(name = "Internet")
     private String internet;
-    
+
     @Basic(optional = false)
     @Validate("required, minLength=2")
     @Column(name = "Djakuzi")
@@ -146,5 +147,5 @@ public class Soba implements Serializable {
     public String toString() {
         return "com.mycompany.methotels.entities.Soba[ iDSoba=" + iDSoba + " ]";
     }
-    
+
 }

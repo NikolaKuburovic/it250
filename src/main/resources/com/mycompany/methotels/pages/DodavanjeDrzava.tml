@@ -1,0 +1,13 @@
+<html t:type="layout" title="MetHotels - Forma za unos drzava"
+      t:sidebarTitle="Framework Version"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+    <t:beaneditform object="drzava" exclude="id" >
+    </t:beaneditform>
+    <t:grid source="drzave" exclude="id" add="delete" row="onedrzava">
+        <p:deleteCell>
+            <t:actionlink t:id="delete" context="onedrzava.id">Delete</t:actionlink>
+        </p:deleteCell>
+    </t:grid>
+</html>
+  
