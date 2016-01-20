@@ -26,11 +26,16 @@ public class AppModule {
     public static void bind(ServiceBinder binder) {
         binder.bind(DrzavaDao.class, DrzavaDaoImpl.class);
         binder.bind(GostDao.class, GostDaoImpl.class);
+        binder.bind(UserDao.class, UserDaoImpl.class);
 
         // Make bind() calls on the binder object to define most IoC services.
         // Use service builder methods (example below) when the implementation
         // is provided inline, or requires more initialization than simply
         // invoking the constructor.
+    }
+
+    public void contributeComponentRequestHandler(OrderedConfiguration<ComponentRequestFilter> configuration) {
+        configuration.addInstance("PageProtectionFilter", PageProtectionFilter.class);
     }
 
     public static void contributeFactoryDefaults(

@@ -5,58 +5,52 @@
  */
 package com.mycompany.methotels.entities;
 
+import com.mycompany.methotels.data.Rezervacija;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import org.apache.tapestry5.beaneditor.Validate;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
  *
- * @author Nikola Kuburovic 1095
+ * @author ubuntu
  */
 @Entity
 @Table(name = "soba")
 @NamedQueries({
     @NamedQuery(name = "Soba.findAll", query = "SELECT s FROM Soba s")})
 public class Soba implements Serializable {
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Validate("required, max=900")
     @Column(name = "ID_Soba")
     private Integer iDSoba;
-
     @Basic(optional = false)
-    @Validate("required, minLength=5")
     @Column(name = "Ime")
     private String ime;
-
     @Basic(optional = false)
-    @Validate("required, max=9")
     @Column(name = "Sprat")
     private int sprat;
-
     @Basic(optional = false)
-    @Validate("required, minLength=2")
     @Column(name = "TV")
     private String tv;
-
     @Basic(optional = false)
-    @Validate("required, minLength=2")
     @Column(name = "Internet")
     private String internet;
-
     @Basic(optional = false)
-    @Validate("required, minLength=2")
     @Column(name = "Djakuzi")
     private String djakuzi;
+    @Basic(optional = false)
+    @Enumerated(EnumType.STRING)
+    @Column(name = "Rezervacija")
+    private Rezervacija rezervacija;
 
     @Inject
     public Soba() {
@@ -66,13 +60,14 @@ public class Soba implements Serializable {
         this.iDSoba = iDSoba;
     }
 
-    public Soba(Integer iDSoba, String ime, int sprat, String tv, String internet, String djakuzi) {
+    public Soba(Integer iDSoba, String ime, int sprat, String tv, String internet, String djakuzi, Rezervacija rezervacija) {
         this.iDSoba = iDSoba;
         this.ime = ime;
         this.sprat = sprat;
         this.tv = tv;
         this.internet = internet;
         this.djakuzi = djakuzi;
+        this.rezervacija = rezervacija;
     }
 
     public Integer getIDSoba() {
@@ -123,6 +118,14 @@ public class Soba implements Serializable {
         this.djakuzi = djakuzi;
     }
 
+    public Rezervacija getRezervacija() {
+        return rezervacija;
+    }
+
+    public void setRezervacija(Rezervacija rezervacija) {
+        this.rezervacija = rezervacija;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -147,5 +150,5 @@ public class Soba implements Serializable {
     public String toString() {
         return "com.mycompany.methotels.entities.Soba[ iDSoba=" + iDSoba + " ]";
     }
-
+    
 }

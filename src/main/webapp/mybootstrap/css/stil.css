@@ -10,7 +10,10 @@ container{
     font-family: "Lobster";
     font-size: 3em;
 }
-
+.navbar-btn{
+    margin-top:0;
+     margin-bottom: 8px;
+}
 .container-fluid {
     background: #fff;
     border-color: #fff;

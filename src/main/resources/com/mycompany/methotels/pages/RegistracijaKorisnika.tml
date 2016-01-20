@@ -1,0 +1,17 @@
+<html t:type="layout" title="MetHotels - Registracija korisnika"
+      t:sidebarTitle="Framework Version"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+   <head>
+        <link rel="stylesheet" href="mybootstrap/css/stil.css"></link>
+    </head>
+  
+    <div class="container">                                       
+        <h2>Админ страна за регистровање корисника</h2>
+    <t:beaneditform t:id="form" object="userReg" exclude="userid">
+        <t:errors/>
+    </t:beaneditform>
+    </div>
+</html>
+
+  

@@ -1,0 +1,25 @@
+    <html t:type="layout" title="MetHotels"
+          t:sidebarTitle="Framework Version"
+          xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+          xmlns:p="tapestry:parameter">
+    
+
+    <head>
+        <link rel="stylesheet" href="mybootstrap/css/stil.css"></link>
+    </head>
+    <div>
+        <div class="container">                                       
+            <div id="slajd"> 
+                <img class="img-responsive" alt="MetHotels" src="images/stanisic.jpg"></img>
+            </div>
+            <div class="row">
+                <h2>Списак хотелских соба</h2>
+            </div>
+        </div>
+        <!--<t:beaneditform object="soba" exclude="id" />-->
+        <t:grid source="sobe" exclude="id"/>
+        <!--<h2>Унос соба</h2>
+        <t:beaneditform object="soba"/>
+        <t:grid t:source="sobe"/>  -->
+    </div>
+</html>     

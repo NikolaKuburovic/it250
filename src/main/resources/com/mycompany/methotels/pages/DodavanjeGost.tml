@@ -2,6 +2,9 @@
       t:sidebarTitle="Framework Version"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
+    <head>
+        <link rel="stylesheet" href="mybootstrap/css/stil.css"></link>
+    </head>
     <t:beaneditform object="gost" exclude="id" add="drzID" >
         <p:drzId>
             <t:label for="drzId"/>:

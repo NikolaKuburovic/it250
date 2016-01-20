@@ -1,4 +1,4 @@
-    <html t:type="layout" title="MetHotels"
+    <html t:type="layout" title="MetHotels - Admin strana - Sobe"
       t:sidebarTitle="Framework Version"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
@@ -9,29 +9,7 @@
     </head>
   
     <div class="container">                                       
-        <div id="slajd"> 
-            <img class="img-responsive" alt="MetHotels" src="images/stanisic.jpg"></img>
-        </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <h3>Локација</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                <button type="button" class="btn btn-success">Прочитај више</button>
-            </div>
-            <div class="col-sm-4">
-                <h3>Погодности</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                <button type="button" class="btn btn-success">Прочитај више</button>
-            </div>
-            <div class="col-sm-4">
-                <h3>Аранжмани</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                <button type="button" class="btn btn-success">Прочитај више</button>
-            </div>
-        </div>
+        <h2>Админ страна за додавање соба</h2>
         <t:beaneditform object="soba" exclude="id" />
     <t:grid source="sobe" exclude="id"/>
         <!--<h2>Унос соба</h2>

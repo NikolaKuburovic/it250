@@ -1,9 +1,7 @@
 package com.mycompany.methotels.pages;
 
 import com.mycompany.methotels.entities.Soba;
-import com.mycompany.methotels.services.ProtectedPage;
 import java.util.ArrayList;
-import javax.annotation.security.RolesAllowed;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.annotations.Inject;
@@ -14,10 +12,7 @@ import org.hibernate.Session;
  *
  * @author nikola kuburovic 1095
  */
-@ProtectedPage
-@RolesAllowed(value={"Admin"})
-
-public class DodavanjeSoba {
+public class SpisakSoba {
 
     @Property
     private Soba soba;

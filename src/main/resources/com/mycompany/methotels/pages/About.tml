@@ -2,6 +2,9 @@
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
+    <head>
+        <link rel="stylesheet" href="mybootstrap/css/stil.css"></link>
+    </head>
     <div class="row">
         <div class="span12">
             <p>About MetHotels application ...</p>
