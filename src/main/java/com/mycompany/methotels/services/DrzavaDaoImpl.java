@@ -47,4 +47,9 @@ public class DrzavaDaoImpl implements DrzavaDao {
 
     }
 
+    @Override
+    public void dodajIzmeniDrzavu(Drzava drzava) {
+        session.merge(drzava);
+    }
+
 }

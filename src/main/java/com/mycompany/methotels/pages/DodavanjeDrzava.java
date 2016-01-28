@@ -9,9 +9,11 @@ import com.mycompany.methotels.entities.Drzava;
 import com.mycompany.methotels.services.DrzavaDao;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.json.JSONObject;
 
 /**
  *
@@ -20,6 +22,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 public class DodavanjeDrzava {
 
     @Property
+    @Persist
     private Drzava drzava;
     @Property
     private Drzava onedrzava;
@@ -37,7 +40,8 @@ public class DodavanjeDrzava {
 
     @CommitAfter
     Object onSuccess() {
-        drzaveDao.dodajDrzavu(drzava);
+        drzaveDao.dodajIzmeniDrzavu(drzava);
+        drzava = new Drzava();
         return this;
     }
 
@@ -46,4 +50,19 @@ public class DodavanjeDrzava {
         drzaveDao.obrisiDrzavu(id);
         return this;
     }
+
+    @CommitAfter
+    Object onActionFromEdit(Drzava drzave) {
+        drzava = drzave;
+        return this;
+    }
+
+    public JSONObject getOptions() {
+        JSONObject json = new JSONObject();
+        json.put("bJQueryUI", "true");
+        json.put("bStateSave", true);
+        json.put("bAutoWidth", true);
+        return json;
+    }
+
 }

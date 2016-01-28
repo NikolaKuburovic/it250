@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.json.JSONObject;
 
 import org.hibernate.Session;
 
@@ -22,6 +23,8 @@ public class SpisakSoba {
     @Property
     private ArrayList<Soba> sobe;
     
+    /*@Property
+    private DateComp datum;*/
 
     /*public DodavanjeSoba() {
 
@@ -38,5 +41,14 @@ public class SpisakSoba {
         session.persist(soba);
         return this;
     }
+    
+    public JSONObject getOptions() {
+        JSONObject json = new JSONObject();
+        json.put("bJQueryUI", "true");
+        json.put("bStateSave", true);
+        json.put("bAutoWidth", true);
+        return json;
+    }
 
+        
 }

@@ -6,13 +6,11 @@
 package com.mycompany.methotels.entities;
 
 import com.mycompany.methotels.data.Rezervacija;
-import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
+import javax.persistence.EnumType;  
 import javax.persistence.Enumerated;
-import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -26,12 +24,12 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 @Table(name = "soba")
 @NamedQueries({
     @NamedQuery(name = "Soba.findAll", query = "SELECT s FROM Soba s")})
-public class Soba implements Serializable {
+public class Soba extends AbstractEntity {
     private static final long serialVersionUID = 1L;
-    @Id
+    /*@Id
     @Basic(optional = false)
-    @Column(name = "ID_Soba")
-    private Integer iDSoba;
+    @Column(name = "ID")
+    private Integer id;*/
     @Basic(optional = false)
     @Column(name = "Ime")
     private String ime;
@@ -57,11 +55,11 @@ public class Soba implements Serializable {
     }
 
     public Soba(Integer iDSoba) {
-        this.iDSoba = iDSoba;
+        this.id = iDSoba;
     }
 
     public Soba(Integer iDSoba, String ime, int sprat, String tv, String internet, String djakuzi, Rezervacija rezervacija) {
-        this.iDSoba = iDSoba;
+        this.id = iDSoba;
         this.ime = ime;
         this.sprat = sprat;
         this.tv = tv;
@@ -70,12 +68,12 @@ public class Soba implements Serializable {
         this.rezervacija = rezervacija;
     }
 
-    public Integer getIDSoba() {
-        return iDSoba;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIDSoba(Integer iDSoba) {
-        this.iDSoba = iDSoba;
+    public void setId(Integer iDSoba) {
+        this.id = iDSoba;
     }
 
     public String getIme() {
@@ -129,7 +127,7 @@ public class Soba implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (iDSoba != null ? iDSoba.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -140,7 +138,7 @@ public class Soba implements Serializable {
             return false;
         }
         Soba other = (Soba) object;
-        if ((this.iDSoba == null && other.iDSoba != null) || (this.iDSoba != null && !this.iDSoba.equals(other.iDSoba))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -148,7 +146,7 @@ public class Soba implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mycompany.methotels.entities.Soba[ iDSoba=" + iDSoba + " ]";
+        return "com.mycompany.methotels.entities.Soba[ iDSoba=" + id + " ]";
     }
     
 }

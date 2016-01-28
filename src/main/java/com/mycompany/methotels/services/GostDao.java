@@ -21,4 +21,6 @@ public interface GostDao {
     public void dodajGosta(Gost gost);
 
     public void obrisiGosta(Integer id);
+    
+    public void dodajIzmeniGost(Gost gost);
 }

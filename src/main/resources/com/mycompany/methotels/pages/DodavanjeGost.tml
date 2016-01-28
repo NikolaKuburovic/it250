@@ -5,22 +5,27 @@
     <head>
         <link rel="stylesheet" href="mybootstrap/css/stil.css"></link>
     </head>
-    <t:beaneditform object="gost" exclude="id" add="drzID" >
+    
+    <t:beaneditform object="gost" exclude="id" add="drzId" >
         <p:drzId>
             <t:label for="drzId"/>:
-            <t:select t:blankLabel="Odaberi drzavu" t:id="drzID" encoder="encoder" model="drzave" 
+            <t:select t:blankLabel="Odaberi drzavu" t:id="drzId" encoder="encoder" model="drzave" 
                       validate="required"/>
         </p:drzId>
     </t:beaneditform>
-    <t:grid source="gosti" exclude="" add="delete,drzava" row="onegost"
-            reorder="id,ime,prezime,drzava,delete">
+    <t:jquery.datatable source="gosti" exclude="" add="edit,delete,drzava" t:options="options" row="onegost"
+            reorder="id,ime,prezime,drzava,edit,delete">
+        <p:editCell>
+            <t:actionlink t:id="edit" context="onegost">Edit</t:actionlink>
+        </p:editCell>
         <p:deleteCell>
             <t:actionlink t:id="delete" context="onegost.id">Delete</t:actionlink>
         </p:deleteCell>
         <p:drzavaCell>
             ${drzava}
         </p:drzavaCell>
-    </t:grid>
+    </t:jquery.datatable>
+    
 </html>
 
 

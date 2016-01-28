@@ -10,8 +10,17 @@
   
     <div class="container">                                       
         <h2>Админ страна за додавање соба</h2>
-        <t:beaneditform object="soba" exclude="id" />
-    <t:grid source="sobe" exclude="id"/>
+        <t:beaneditform object="soba" exclude="id">
+        </t:beaneditform>
+    <t:jquery.datatable source="sobe" exclude="id" add="edit,delete" t:options="options" 
+                        row="onesoba">
+        <p:editCell>
+            <t:actionlink t:id="edit" context="onesoba">Edit</t:actionlink>
+        </p:editCell>
+        <p:deleteCell>
+            <t:actionlink t:id="delete" context="onesoba.ID">Delete</t:actionlink>
+        </p:deleteCell>
+    </t:jquery.datatable>
         <!--<h2>Унос соба</h2>
         <t:beaneditform object="soba"/>
         <t:grid t:source="sobe"/>  -->

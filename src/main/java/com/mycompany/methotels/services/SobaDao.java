@@ -5,24 +5,24 @@
  */
 package com.mycompany.methotels.services;
 
-import com.mycompany.methotels.entities.Drzava;
+import com.mycompany.methotels.entities.Soba;
 import java.util.List;
 
 /**
  *
  * @author Nikola Kuburovic 1095
  */
-public interface DrzavaDao {
+public interface SobaDao {
 
-    public List<Drzava> getListaSvihDrzava();
+    public List<Soba> getListaSvihSoba();
 
-    public Drzava getDrzavaById(Integer id);
+    public Soba getSobaById(Integer id);
 
-    public void dodajDrzavu(Drzava drzava);
+    public void dodajSobu(Soba soba);
 
-    public void obrisiDrzavu(Integer id);
+    public void obrisiSobu(Integer id);
     
-    public void dodajIzmeniDrzavu(Drzava drzava);
+    public void dodajIzmeniSobu(Soba soba);
     
 
 }

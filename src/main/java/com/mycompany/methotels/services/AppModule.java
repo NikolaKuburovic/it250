@@ -27,6 +27,9 @@ public class AppModule {
         binder.bind(DrzavaDao.class, DrzavaDaoImpl.class);
         binder.bind(GostDao.class, GostDaoImpl.class);
         binder.bind(UserDao.class, UserDaoImpl.class);
+        binder.bind(SobaDao.class, SobaDaoImpl.class);
+        binder.bind(GenericDao.class,GenericDaoImpl.class);
+
 
         // Make bind() calls on the binder object to define most IoC services.
         // Use service builder methods (example below) when the implementation

@@ -5,7 +5,7 @@
  */
 package com.mycompany.methotels.services;
 
-import com.mycompany.methotels.entities.Gost;
+import com.mycompany.methotels.entities.Soba;
 import java.util.List;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.hibernate.Session;
@@ -15,41 +15,41 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author Nikola Kuburovic 1095
  */
-public class GostDaoImpl implements GostDao {
+public class SobaDaoImpl implements SobaDao {
 
     @Inject
     private Session session;
 
     @Override
-    public List<Gost> getListaSvihGostiju() {
-        return session.createCriteria(Gost.class).list();
+    public List<Soba> getListaSvihSoba() {
+        return session.createCriteria(Soba.class).list();
 
     }
 
     @Override
-    public Gost getGostById(Integer id) {
+    public Soba getSobaById(Integer id) {
         System.out.println("Integer je " + id);
-        return (Gost) session.createCriteria(Gost.class).add(Restrictions.eq("id", id)).uniqueResult();
+        return (Soba) session.createCriteria(Soba.class).add(Restrictions.eq("id", id)).uniqueResult();
 
     }
 
     @Override
-    public void dodajGosta(Gost gost) {
-        session.persist(gost);
+    public void dodajSobu(Soba soba) {
+        session.persist(soba);
 
     }
 
     @Override
-    public void obrisiGosta(Integer id) {
-        Gost gost = (Gost) session.createCriteria(Gost.class).add(Restrictions.eq("id",
+    public void obrisiSobu(Integer id) {
+        Soba soba = (Soba) session.createCriteria(Soba.class).add(Restrictions.eq("id",
                 id)).uniqueResult();
-        session.delete(gost);
+        session.delete(soba);
 
     }
 
     @Override
-    public void dodajIzmeniGost(Gost gost) {
-       session.merge(gost);
+    public void dodajIzmeniSobu(Soba soba) {
+        session.merge(soba);
     }
 
 }

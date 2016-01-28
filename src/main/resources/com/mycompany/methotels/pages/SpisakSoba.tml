@@ -17,7 +17,9 @@
             </div>
         </div>
         <!--<t:beaneditform object="soba" exclude="id" />-->
-        <t:grid source="sobe" exclude="id"/>
+        <t:datecomp/>
+        <t:jquery.datatable source="sobe" exclude="id" t:options="options">
+        </t:jquery.datatable>
         <!--<h2>Унос соба</h2>
         <t:beaneditform object="soba"/>
         <t:grid t:source="sobe"/>  -->

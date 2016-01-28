@@ -2,18 +2,25 @@
       t:sidebarTitle="Framework Version"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
-     <head>
+     
+    
+    <head>
         <link rel="stylesheet" href="mybootstrap/css/stil.css"></link>
     </head>
+    
     <div class="container">                                       
         <h2>Страна за додавање и брисање држава</h2>
     <t:beaneditform object="drzava" exclude="id" >
     </t:beaneditform>
-    <t:grid source="drzave" exclude="id" add="delete" row="onedrzava">
+    <t:jquery.datatable source="drzave" exclude="id" add="edit,delete" t:options="options" 
+                        row="onedrzava">
+        <p:editCell>
+            <t:actionlink t:id="edit" context="onedrzava">Edit</t:actionlink>
+        </p:editCell>
         <p:deleteCell>
-            <t:actionlink t:id="delete" context="onedrzava.id">Delete</t:actionlink>
+            <t:actionlink t:id="delete" context="onedrzava.ID">Delete</t:actionlink>
         </p:deleteCell>
-    </t:grid>
+    </t:jquery.datatable>
     </div>
 </html>
   

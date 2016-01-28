@@ -17,33 +17,34 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
  *
- * @author Nikola Kuburovic 1095
+ * @author ubuntu
  */
 @Entity
 @Table(name = "Gost")
 @NamedQueries({
     @NamedQuery(name = "Gost.findAll", query = "SELECT g FROM Gost g")})
-public class Gost implements Serializable {
-
+public class Gost extends AbstractEntity {
     private static final long serialVersionUID = 1L;
-    @Id
+    /*@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "ID")
-    private Integer id;
+    private Integer id;*/
     @Basic(optional = false)
     @Column(name = "Ime")
     private String ime;
     @Basic(optional = false)
     @Column(name = "Prezime")
     private String prezime;
-    @JoinColumn(name = "drzIme", referencedColumnName = "Ime")
+    @JoinColumn(name = "drzID", referencedColumnName = "ID")
     @ManyToOne(optional = false)
-    private Drzava drzIme;
+    private Drzava drzID;
 
+    @Inject
     public Gost() {
     }
 
@@ -81,12 +82,12 @@ public class Gost implements Serializable {
         this.prezime = prezime;
     }
 
-    public Drzava getDrzIme() {
-        return drzIme;
+    public Drzava getDrzID() {
+        return drzID;
     }
 
-    public void setDrzIme(Drzava drzIme) {
-        this.drzIme = drzIme;
+    public void setDrzID(Drzava drzID) {
+        this.drzID = drzID;
     }
 
     @Override
@@ -113,5 +114,5 @@ public class Gost implements Serializable {
     public String toString() {
         return "com.mycompany.methotels.entities.Gost[ id=" + id + " ]";
     }
-
+    
 }

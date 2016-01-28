@@ -5,13 +5,11 @@
  */
 package com.mycompany.methotels.entities;
 
-import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -20,43 +18,42 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
  *
- * @author Nikola Kuburovic 1095
+ * @author ubuntu
  */
 @Entity
 @Table(name = "Drzava")
 @NamedQueries({
     @NamedQuery(name = "Drzava.findAll", query = "SELECT d FROM Drzava d")})
-public class Drzava implements Serializable {
-
+public class Drzava extends AbstractEntity {
     private static final long serialVersionUID = 1L;
+    /*@Id
     @Basic(optional = false)
     @Column(name = "ID")
-    private int id;
-    @Id
+    private Integer id;*/
     @Basic(optional = false)
     @Column(name = "Ime")
     private String ime;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "drzIme")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "drzID")
     private List<Gost> gostList;
 
     @Inject
     public Drzava() {
     }
 
-    public Drzava(String ime) {
-        this.ime = ime;
-    }
-
-    public Drzava(String ime, int id) {
-        this.ime = ime;
+    public Drzava(Integer id) {
         this.id = id;
     }
 
-    public int getId() {
+    public Drzava(Integer id, String ime) {
+        this.id = id;
+        this.ime = ime;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -79,7 +76,7 @@ public class Drzava implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (ime != null ? ime.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -90,7 +87,7 @@ public class Drzava implements Serializable {
             return false;
         }
         Drzava other = (Drzava) object;
-        if ((this.ime == null && other.ime != null) || (this.ime != null && !this.ime.equals(other.ime))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -98,7 +95,7 @@ public class Drzava implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mycompany.methotels.entities.Drzava[ ime=" + ime + " ]";
+        return "com.mycompany.methotels.entities.Drzava[ id=" + id + " ]";
     }
-
+    
 }

@@ -16,6 +16,7 @@ import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.json.JSONObject;
 
 /**
  *
@@ -24,6 +25,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 public class DodavanjeGost {
 
     @Property
+    @Persist
     private Gost gost;
     @Property
     private Gost onegost;
@@ -54,6 +56,8 @@ public class DodavanjeGost {
     @Property
     private List<Gost> gosti;
 
+    
+        
     void onActivate() {
         gost = new Gost();
         if (gosti == null) {
@@ -63,18 +67,20 @@ public class DodavanjeGost {
         drzave = drzaveDao.getListaSvihDrzava();
     }
 
+    
     @CommitAfter
     Object onSuccess() {
-        gost.setDrzIme(drzId);
-        gostiDao.dodajGosta(gost);
+        gost.setDrzID(drzId);
+        gostiDao.dodajIzmeniGost(gost);
+        gost = new Gost();
         return this;
     }
 
     public String getDrzava() {
-        if (onegost.getDrzIme() != null) {
-            return onegost.getDrzIme().getIme();
+        if (onegost.getDrzID() != null) {
+            return onegost.getDrzID().getIme();
         } else {
-            return "";
+                return "";
         }
     }
 
@@ -82,6 +88,20 @@ public class DodavanjeGost {
     Object onActionFromDelete(int id) {
         gostiDao.obrisiGosta(id);
         return this;
+    }
+    
+    @CommitAfter
+    Object onActionFromEdit(Gost gosti) {
+        gost = gosti;
+        return this;
+    }
+    
+    public JSONObject getOptions() {
+        JSONObject json = new JSONObject();
+        json.put("bJQueryUI", "true");
+        json.put("bStateSave", true);
+        json.put("bAutoWidth", true);
+        return json;
     }
 
 }
