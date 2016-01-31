@@ -16,7 +16,6 @@ import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.annotations.Inject;
-import org.apache.tapestry5.json.JSONObject;
 
 /**
  *
@@ -94,14 +93,6 @@ public class DodavanjeGost {
     Object onActionFromEdit(Gost gosti) {
         gost = gosti;
         return this;
-    }
-    
-    public JSONObject getOptions() {
-        JSONObject json = new JSONObject();
-        json.put("bJQueryUI", "true");
-        json.put("bStateSave", true);
-        json.put("bAutoWidth", true);
-        return json;
     }
 
 }

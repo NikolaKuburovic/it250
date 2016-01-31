@@ -18,7 +18,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
  *
- * @author ubuntu
+ * @author Nikola Kuburovic 1095
  */
 @Entity
 @Table(name = "Drzava")

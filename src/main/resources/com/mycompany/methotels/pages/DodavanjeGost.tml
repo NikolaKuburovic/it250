@@ -13,18 +13,18 @@
                       validate="required"/>
         </p:drzId>
     </t:beaneditform>
-    <t:jquery.datatable source="gosti" exclude="" add="edit,delete,drzava" t:options="options" row="onegost"
-            reorder="id,ime,prezime,drzava,edit,delete">
+    <t:grid source="gosti" exclude="ID" add="edit,delete,drzava" t:options="options" row="onegost"
+            reorder="ime,prezime,drzava,edit,delete">
         <p:editCell>
-            <t:actionlink t:id="edit" context="onegost">Edit</t:actionlink>
+            <t:actionlink t:id="edit" context="onegost">Izmeni</t:actionlink>
         </p:editCell>
         <p:deleteCell>
-            <t:actionlink t:id="delete" context="onegost.id">Delete</t:actionlink>
+            <t:actionlink t:id="delete" context="onegost.id">Izbrisi</t:actionlink>
         </p:deleteCell>
         <p:drzavaCell>
             ${drzava}
         </p:drzavaCell>
-    </t:jquery.datatable>
+    </t:grid>
     
 </html>
 

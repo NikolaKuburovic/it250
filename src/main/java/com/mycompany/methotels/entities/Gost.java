@@ -5,13 +5,9 @@
  */
 package com.mycompany.methotels.entities;
 
-import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -21,7 +17,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
  *
- * @author ubuntu
+ * @author Nikola Kuburovic 1095
  */
 @Entity
 @Table(name = "Gost")
@@ -43,7 +39,7 @@ public class Gost extends AbstractEntity {
     @JoinColumn(name = "drzID", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Drzava drzID;
-
+    
     @Inject
     public Gost() {
     }

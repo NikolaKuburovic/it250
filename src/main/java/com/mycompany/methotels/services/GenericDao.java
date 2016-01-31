@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author ubuntu
+ * @author Nikola Kuburovic 1095
  * @param <T>
  */
 public interface GenericDao<T extends AbstractEntity> {

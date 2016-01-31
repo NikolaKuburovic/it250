@@ -10,7 +10,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
  *
- * @author ubuntu
+ * @author Nikola Kuburovic 1095
  */
 public class DateComp {
 

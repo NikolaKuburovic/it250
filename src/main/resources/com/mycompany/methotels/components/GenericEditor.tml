@@ -1,5 +1,9 @@
 <html t:type="layout" title="Genericki editor"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+    
+    <head>
+        <link rel="stylesheet" href="mybootstrap/css/stil.css"></link>
+    </head>
     <t:beaneditform object="bean" t:model="formModel" >
     </t:beaneditform>
     <t:grid source="grid" t:model="gridModel" add="edit,brisanje" row="row">
