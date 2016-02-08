@@ -138,7 +138,7 @@
             <hr />
 
             <footer>
-                <p>&copy; Никола Кубуровић 1095</p>
+                <p>&copy; Никола Кубуровић 1095</p><t:copyrightcomp/>
             </footer>
 
         </div><!-- /container -->

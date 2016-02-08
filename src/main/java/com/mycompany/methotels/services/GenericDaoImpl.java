@@ -43,9 +43,9 @@ public class GenericDaoImpl<T extends AbstractEntity> implements GenericDao<T> {
                 id)).list().get(0);
         return (T) tmpEntity;
     }
-
+                            
     @Override
-    public List loadAllActive(Class klasa) {
+    public List<T> loadAllActive(Class klasa) {
         List<T> lista = hibernate.createCriteria(klasa).setResultTransformer(
                 Criteria.DISTINCT_ROOT_ENTITY).list();
         Collections.sort(lista);

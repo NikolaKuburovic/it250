@@ -7,9 +7,12 @@ package com.mycompany.methotels.components;
 
 import com.mycompany.methotels.entities.AbstractEntity;
 import com.mycompany.methotels.services.GenericDao;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.PropertyConduit;
+import org.apache.tapestry5.annotations.PageLoaded;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.beaneditor.BeanModel;
@@ -40,15 +43,20 @@ public class GenericEditor<T extends AbstractEntity> {
     @Inject
     private ComponentResources componentResources;
     private Class klasa;
+    @Property
+    private List<T> lista;
 
     {
         PropertyConduit conduit1 = conduit.create(getClass(), "bean");
         klasa = conduit1.getPropertyType();
     }
 
-    public List<T> getGrid() {
-        List<T> temp = genericDao.loadAllActive(klasa);
-        return temp;
+    @PageLoaded
+    void pocetna() {
+        if (lista == null) {
+            lista = new ArrayList();
+        }
+        lista = genericDao.loadAllActive(klasa);
     }
 
     public BeanModel<T> getFormModel() {
@@ -63,7 +71,7 @@ public class GenericEditor<T extends AbstractEntity> {
 
     @CommitAfter
     Object onActionFromBrisanje(int id) {
-        genericDao.delete(id, klasa);
+        lista.remove((T) genericDao.delete(id, klasa));
         return this;
     }
 
@@ -75,11 +83,29 @@ public class GenericEditor<T extends AbstractEntity> {
 
     @CommitAfter
     public Object onSuccess() {
-        genericDao.merge(bean);
+        brisanjeIzKesa();
+        lista.add((T) genericDao.merge(bean));
         try {
             bean = (T) klasa.newInstance();
         } catch (Exception ex) {
         }
         return this;
+    }
+
+    public void brisanjeIzKesa() {
+
+        for (int i = lista.size() - 1; i >= 0; i--) {
+            if (lista.get(i).equals(bean)) {
+                lista.remove(i);
+            }
+        }
+
+        //Jos jedan moguci nacin brisanja iz lokalnog kesa
+        /*ListIterator<T> li = lista.listIterator();
+         while (li.hasNext()) {
+            if (li.next().compareTo(bean) == 0) {
+                li.remove();
+            }
+         }*/
     }
 }
