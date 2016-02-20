@@ -15,7 +15,7 @@ import javax.persistence.MappedSuperclass;
 
 /**
  *
- * @author ubuntu
+ * @author Nikola Kuburovic 1095
  */
 @MappedSuperclass
 public class AbstractEntity implements Serializable, Comparable<AbstractEntity> {

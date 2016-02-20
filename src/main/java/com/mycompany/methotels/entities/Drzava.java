@@ -95,7 +95,8 @@ public class Drzava extends AbstractEntity {
 
     @Override
     public String toString() {
-        return "com.mycompany.methotels.entities.Drzava[ id=" + id + " ]";
+        /*return "com.mycompany.methotels.entities.Drzava[ id=" + id + " ]";*/
+        return getIme();
     }
     
 }

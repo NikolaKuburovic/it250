@@ -1,0 +1,14 @@
+<html t:type="layout" title="MetHotels - Pretraga JQuery"
+      t:sidebarTitle="Framework Version"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+    <head>
+        <link rel="stylesheet" href="mybootstrap/css/stil.css"></link>
+    </head>
+    <body>
+        <div id="table">
+        </div>
+
+    </body>
+</html>
+

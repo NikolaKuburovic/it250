@@ -18,7 +18,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
  *
- * @author ubuntu
+ * @author Nikola Kuburovic 1095
  */
 @Entity
 @Table(name = "soba")
@@ -146,7 +146,8 @@ public class Soba extends AbstractEntity {
 
     @Override
     public String toString() {
-        return "com.mycompany.methotels.entities.Soba[ iDSoba=" + id + " ]";
+        /*return "com.mycompany.methotels.entities.Soba[ iDSoba=" + id + " ]";*/
+        return getIme();
     }
     
 }

@@ -22,4 +22,11 @@ public interface GenericDao<T extends AbstractEntity> {
     public abstract List<T> loadAllActive(Class klasa);
 
     public abstract T getElementById(Integer id, Class klasa);
+
+    public abstract List<T> getElementsByNames(String ime);
+
+    public abstract int allActiveSize();
+
+    public abstract List<T> loadActiveFromTo(int from);
+
 }
