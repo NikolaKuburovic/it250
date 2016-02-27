@@ -1,0 +1,59 @@
+    <html t:type="layout" title="MetHotels - Admin strana - Sobe"
+          t:sidebarTitle="Framework Version"
+          xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+          xmlns:p="tapestry:parameter">
+    
+
+    <head>
+        <link rel="stylesheet" href="mybootstrap/css/stil.css"></link>
+    </head>
+  
+    <div class="container">                                       
+        <h2>Админ страна за додавање соба</h2>
+        
+        <t:zone t:id="formZone">
+            <t:beaneditform object="soba" row="onesoba" t:zone="zoneSobe" exclude="id">
+            </t:beaneditform>
+        </t:zone>
+        
+        <t:zone t:id="zoneSobe">
+            <t:grid source="sobe" t:inplace="true" exclude="id" add="edit,delete" t:options="options" 
+                    row="onesoba">
+                <p:imeCell>
+                    <div t:id="ime" value="onesoba.ime" t:type="jquery/inPlaceEditor"
+                         t:context="onesoba.ID"/>
+                </p:imeCell>
+                <p:spratCell>
+                    <div t:id="sprat" value="onesoba.sprat" t:type="jquery/inPlaceEditor"
+                         t:context="onesoba.ID"/>
+                </p:spratCell>
+                <p:tvCell>
+                    <div t:id="tv" value="onesoba.tv" t:type="jquery/inPlaceEditor"
+                         t:context="onesoba.ID"/>
+                </p:tvCell>
+                <p:internetCell>
+                    <div t:id="internet" value="onesoba.internet" t:type="jquery/inPlaceEditor"
+                         t:context="onesoba.ID"/>
+                </p:internetCell>
+                <p:djakuziCell>
+                    <div t:id="djakuzi" value="onesoba.djakuzi" t:type="jquery/inPlaceEditor"
+                         t:context="onesoba.ID"/>
+                </p:djakuziCell>
+                <p:rezervacijaCell>
+                    <div t:id="rezervacija" value="onesoba.rezervacija" t:type="jquery/inPlaceEditor"
+                         t:context="onesoba.ID"/>
+                </p:rezervacijaCell>
+                <p:editCell>
+                    <t:actionlink t:id="edit" t:zone="formZone" context="onesoba">Edit</t:actionlink>
+                </p:editCell>
+                <p:deleteCell>
+                    <t:actionlink t:id="delete" t:zone="zoneSoba" context="onesoba.ID">Delete</t:actionlink>
+                </p:deleteCell>
+            </t:grid>
+        </t:zone>
+
+        <!--<h2>Унос соба</h2>
+        <t:beaneditform object="soba"/>
+        <t:grid t:source="sobe"/>  -->
+    </div>
+</html>     
