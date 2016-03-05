@@ -181,11 +181,10 @@
         </repository>
         <repository>
             <id>central</id>
-            <url>http://central.maven.org/maven2/
-            </url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
+            <url>https://repo1.maven.org/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
         </repository>
         <repository>
             <id>ossrh</id>
@@ -195,11 +194,18 @@
                 <enabled>false</enabled>
             </releases>
         </repository>
-
+        <repository>
+            <id>oss—sonatype-snapshot-repo</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots
+            </url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
     </repositories>
 
     <properties>
-        <tapestry-release-version>5.4-beta-6</tapestry-release-version>
+        <tapestry-release-version>5.4-beta-35</tapestry-release-version>
         <servlet-api-release-version>2.5</servlet-api-release-version>
         <testng-release-version>6.5.2</testng-release-version>
         <easymock-release-version>3.0</easymock-release-version>

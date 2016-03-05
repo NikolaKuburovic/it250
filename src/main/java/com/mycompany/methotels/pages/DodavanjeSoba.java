@@ -33,12 +33,14 @@ public class DodavanjeSoba {
     private Soba soba;
 
     @Property
+    @Persist
     private Soba onesoba;
 
     @Inject
     private GenericDao genericDao;
 
     @Property
+    @Persist
     private List<Soba> sobe;
 
     @InjectComponent
@@ -67,6 +69,10 @@ public class DodavanjeSoba {
         if (sobe == null) {
             sobe = new ArrayList<Soba>();
         }
+        if (soba == null){
+            soba = new Soba();
+        }
+        System.out.println("Klasa je="+cls);
         sobe = genericDao.loadAllActive(cls);
     }
 
