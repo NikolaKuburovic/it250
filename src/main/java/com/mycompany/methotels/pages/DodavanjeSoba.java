@@ -69,10 +69,10 @@ public class DodavanjeSoba {
         if (sobe == null) {
             sobe = new ArrayList<Soba>();
         }
-        if (soba == null){
+        if (soba == null) {
             soba = new Soba();
         }
-        System.out.println("Klasa je="+cls);
+        System.out.println("Klasa je=" + cls);
         sobe = genericDao.loadAllActive(cls);
     }
 
@@ -142,6 +142,13 @@ public class DodavanjeSoba {
     }
 
     @CommitAfter
+    Object onActionFromEdit(Soba sobe) {
+        soba = sobe;
+        return request.isXHR() ? formZone.getBody() : null;
+
+    }
+
+    @CommitAfter
     Object onActionFromDelete(int id) {
         genericDao.delete(id, cls);
         sobe = genericDao.loadAllActive(cls);
@@ -149,10 +156,4 @@ public class DodavanjeSoba {
 
     }
 
-    @CommitAfter
-    Object onActionFromEdit(Soba sobe) {
-        soba = sobe;
-        return request.isXHR() ? formZone.getBody() : null;
-
-    }
 }
