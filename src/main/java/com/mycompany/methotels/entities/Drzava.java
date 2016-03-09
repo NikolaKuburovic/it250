@@ -14,6 +14,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
@@ -21,18 +23,21 @@ import org.apache.tapestry5.ioc.annotations.Inject;
  * @author Nikola Kuburovic 1095
  */
 @Entity
+@XmlRootElement
 @Table(name = "Drzava")
 @NamedQueries({
     @NamedQuery(name = "Drzava.findAll", query = "SELECT d FROM Drzava d")})
 public class Drzava extends AbstractEntity {
+
     private static final long serialVersionUID = 1L;
     /*@Id
-    @Basic(optional = false)
-    @Column(name = "ID")
-    private Integer id;*/
+     @Basic(optional = false)
+     @Column(name = "ID")
+     private Integer id;*/
     @Basic(optional = false)
     @Column(name = "Ime")
     private String ime;
+    @XmlTransient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "drzID")
     private List<Gost> gostList;
 
@@ -65,6 +70,7 @@ public class Drzava extends AbstractEntity {
         this.ime = ime;
     }
 
+    @XmlTransient
     public List<Gost> getGostList() {
         return gostList;
     }
@@ -98,5 +104,5 @@ public class Drzava extends AbstractEntity {
         /*return "com.mycompany.methotels.entities.Drzava[ id=" + id + " ]";*/
         return getIme();
     }
-    
+
 }

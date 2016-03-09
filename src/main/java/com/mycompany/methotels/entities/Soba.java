@@ -14,6 +14,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
@@ -21,6 +22,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
  * @author Nikola Kuburovic 1095
  */
 @Entity
+@XmlRootElement
 @Table(name = "soba")
 @NamedQueries({
     @NamedQuery(name = "Soba.findAll", query = "SELECT s FROM Soba s")})

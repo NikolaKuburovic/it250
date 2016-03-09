@@ -18,6 +18,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
@@ -25,6 +27,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
  * @author ubuntu
  */
 @Entity
+@XmlRootElement
 @Table(name = "User")
 @NamedQueries({
     @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")})
@@ -39,6 +42,7 @@ public class User implements Serializable {
     @Basic(optional = false)
     @Column(name = "User_email")
     private String useremail;
+    @XmlTransient
     @Basic(optional = false)
     @Column(name = "User_password")
     private String userpassword;
@@ -79,6 +83,7 @@ public class User implements Serializable {
         this.useremail = useremail;
     }
 
+    @XmlTransient
     public String getUserpassword() {
         return userpassword;
     }
