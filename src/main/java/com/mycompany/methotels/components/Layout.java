@@ -51,7 +51,7 @@ public class Layout {
     }
 
     public boolean getLoggedIn() {
-        if (loggedInUser.getUseremail() != null) {
+        if (loggedInUser.getUsername() != null) {
             return true;
         }
         return false;

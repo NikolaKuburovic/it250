@@ -9,14 +9,16 @@ import com.mycompany.methotels.entities.User;
 
 /**
  *
- * @author ubuntu
+ * @author Nikola Kuburovic 1095
  */
 public interface UserDao {
 
-    public User checkUser(String email, String password);
+    public User checkUser(String username, String password);
 
     public User registerUser(User user);
 
-    public boolean checkIfEmailExists(String email);
+    public boolean checkIfNameExists(String username);
+
+    public User checkIfFbExists(String fcbkId);
 
 }

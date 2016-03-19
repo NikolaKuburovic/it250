@@ -36,6 +36,8 @@ public class AppModule {
         binder.bind(SobaDao.class, SobaDaoImpl.class);
         binder.bind(GenericDao.class, GenericDaoImpl.class);
         binder.bind(SobaWebServiceInterface.class, SobaWebService.class);
+        binder.bind(FacebookService.class);
+
 
         // Make bind() calls on the binder object to define most IoC services.
         // Use service builder methods (example below) when the implementation

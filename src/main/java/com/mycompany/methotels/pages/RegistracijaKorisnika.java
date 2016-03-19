@@ -19,10 +19,10 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
  *
- * @author ubuntu
+ * @author Nikola Kuburovic 1095
  */
-@ProtectedPage
-@RolesAllowed(value={"Admin"})
+//@ProtectedPage
+//@RolesAllowed(value={"Admin"})
 public class RegistracijaKorisnika {
 
     @Property
@@ -50,7 +50,7 @@ public class RegistracijaKorisnika {
 
     @CommitAfter
     Object onSuccess() {
-        if (!userDao.checkIfEmailExists(userReg.getUseremail())) {
+        if (!userDao.checkIfNameExists(userReg.getUsername())) {
             String unhashPassword = userReg.getUserpassword();
             userReg.setUserpassword(getMD5Hash(unhashPassword));
             //userReg.setUserrola(Role.KORISNIK);
@@ -58,7 +58,7 @@ public class RegistracijaKorisnika {
             loggedInUser = u;
             return Index.class;
         } else {
-            form.recordError("Email koji ste uneli vec postoji");
+            form.recordError("Ime koji ste uneli vec postoji");
             return null;
         }
     }

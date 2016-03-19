@@ -6,13 +6,25 @@
     </head>
     <div class="row">
         <div class="span4 offset3">
-            <t:beaneditform t:id="form" object="userLogin" submitlabel="Login" exclude="userid, userrola">
+            <t:if test="loggedInFb">
+                <script>
+                    window.onload = function(){
+                    location.reload();
+                    }
+                </script>
+            </t:if>
+
+            <t:beaneditform t:id="form" object="userLogin" submitlabel="Login" exclude="userid, userrola, facebookId">
                 <t:errors/>
                 <p:userpassword>
                     <t:label for="userpassword"/>
                     <t:passwordfield t:id="userpassword" value="userLogin.userpassword"/>
                 </p:userpassword>
             </t:beaneditform>
+            <a href="${facebookAuthentificationLink}">
+                <input type="button" class="input2" value="Login with facebook"/>
+            </a>
+
         </div>
     </div>
 </html>

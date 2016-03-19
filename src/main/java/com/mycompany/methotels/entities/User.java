@@ -40,8 +40,8 @@ public class User implements Serializable {
     @Column(name = "User_ID")
     private Integer userID;
     @Basic(optional = false)
-    @Column(name = "User_email")
-    private String useremail;
+    @Column(name = "User_name")
+    private String username;
     @XmlTransient
     @Basic(optional = false)
     @Column(name = "User_password")
@@ -49,8 +49,9 @@ public class User implements Serializable {
     @Basic(optional = false)
     @Enumerated(EnumType.STRING)
     @Column(name = "User_rola")
-
     private Role userrola;
+    @Column(name = "FACEBOOK_ID")
+    private String facebookId;
 
     @Inject
     public User() {
@@ -59,12 +60,14 @@ public class User implements Serializable {
     public User(Integer userID) {
         this.userID = userID;
     }
-
-    public User(Integer userID, String useremail, String userpassword, Role userrola) {
-        this.userID = userID;
-        this.useremail = useremail;
+    
+    public User(String username, String userpassword, Role userrola, String facebookId
+) {
+        this.username = username;
         this.userpassword = userpassword;
         this.userrola = userrola;
+        this.facebookId = facebookId;
+
     }
 
     public Integer getUserID() {
@@ -75,12 +78,12 @@ public class User implements Serializable {
         this.userID = userID;
     }
 
-    public String getUseremail() {
-        return useremail;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUseremail(String useremail) {
-        this.useremail = useremail;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @XmlTransient
@@ -98,6 +101,14 @@ public class User implements Serializable {
 
     public void setUserrola(Role userrola) {
         this.userrola = userrola;
+    }
+
+    public String getFacebookId() {
+        return facebookId;
+    }
+
+    public void setFacebookId(String facebookId) {
+        this.facebookId = facebookId;
     }
 
     @Override
