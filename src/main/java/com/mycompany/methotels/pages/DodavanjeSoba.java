@@ -8,6 +8,7 @@ import com.mycompany.methotels.services.ProtectedPage;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.security.RolesAllowed;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.OnEvent;
@@ -26,6 +27,8 @@ import org.got5.tapestry5.jquery.components.InPlaceEditor;
  */
 /*@ProtectedPage
  @RolesAllowed(value={"Admin"})*/
+@RequiresRoles("ADMIN")
+
 public class DodavanjeSoba {
 
     @Property

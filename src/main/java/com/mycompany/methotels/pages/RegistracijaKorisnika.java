@@ -10,6 +10,7 @@ import com.mycompany.methotels.entities.User;
 import com.mycompany.methotels.services.ProtectedPage;
 import com.mycompany.methotels.services.UserDao;
 import javax.annotation.security.RolesAllowed;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SessionState;
@@ -23,6 +24,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
  */
 //@ProtectedPage
 //@RolesAllowed(value={"Admin"})
+@RequiresRoles("ADMIN")
 public class RegistracijaKorisnika {
 
     @Property

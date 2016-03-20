@@ -42,6 +42,14 @@
             <artifactId>restfb</artifactId>
             <version>1.6.11</version>
         </dependency>
+        
+        <!--APACHE SHIRO ZASTITA-->
+        <dependency>
+            <groupId>org.tynamo</groupId>
+            <artifactId>tapestry-security</artifactId>
+            <version>0.6.2</version>
+        </dependency>
+
 
 
 

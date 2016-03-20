@@ -10,6 +10,8 @@ import com.restfb.FacebookClient;
 import java.io.IOException;
 import net.smartam.leeloo.common.exception.OAuthProblemException;
 import net.smartam.leeloo.common.exception.OAuthSystemException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.apache.tapestry5.alerts.AlertManager;
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
 import org.apache.tapestry5.annotations.Component;
@@ -25,6 +27,7 @@ import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.slf4j.Logger;
+import org.tynamo.security.services.SecurityService;
 
 public class Login {
 
@@ -46,6 +49,8 @@ public class Login {
     private FacebookServiceInformation information;
     @Property
     private com.restfb.types.User userfb;
+    @Inject
+    private SecurityService securityService;
 
     @Property
     @ActivationRequestParameter
@@ -79,7 +84,17 @@ public class Login {
         if (u != null) {
             loggedInUser = u;
             System.out.println("Logovan");
+            
+            Subject currentUser = securityService.getSubject();
+            UsernamePasswordToken token = new UsernamePasswordToken(u.getUsername(),
+                    userLogin.getUserpassword());
+            try {
+                currentUser.login(token);
+            } catch (Exception e) {
+                form.recordError("Uneli ste pogrešne parametre");
+            }
             return Index.class;
+
         } else {
             form.recordError("Uneli ste pogrešne parametre");
             System.out.println("losi parametri");
